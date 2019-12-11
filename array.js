@@ -181,19 +181,56 @@ console.log(removeChar(string, characters))
 
 const products = function(array) {
 
-    let resultArray = [];
-
-    for (let i = 0; i <= array.length; i++) {
-
-        let sum = (array.splice(array.indexOf(array[i], 1))).reduce(function(a, b) {
-            return a * b;
-        })
-
-        resultArray.push(sum)
-    }
-
-    return resultArray
+    return array.map(function (_, i) {
+        return array.reduce(function (product, val, j) {
+            return product * (i === j ? 1 : val);
+        }, 1)
+    })
 }
 
 let numbersArray = [1, 3, 9, 4]
 console.log(products(numbersArray))
+
+//11) 2D Array
+
+const arrayChanger = function (array) {
+
+    let badArrays = [];
+    let badArraysObj = [];
+
+    for (let i = 0; i<array.length; i++) {
+
+        if (array[i].includes((0))) {
+            badArraysObj.push({
+                "array": array[i],
+                "index": i
+            })
+        }
+    }
+
+    badArraysObj.forEach((ent) => {
+        for (let i = 0; i<ent.array.length; i++) {
+            let indexToChange = ent.index
+            array.map(arr => {
+                arr[indexToChange] = 0
+            })
+            ent.array[i] = 0
+        }
+    })
+
+    return array
+}
+
+const twoDArray = 
+[[1,0,1,1,0],
+[0,1,1,1,0],
+[1,1,1,1,1],
+[1,0,1,1,1],
+[1,1,1,1,1]];
+
+
+console.log(arrayChanger(twoDArray))
+
+
+
+
