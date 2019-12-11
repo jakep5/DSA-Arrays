@@ -232,5 +232,26 @@ const twoDArray =
 console.log(arrayChanger(twoDArray))
 
 
+//12) String rotation
 
+const stringRotation = function(str1, str2) {
+    if (str1.length !== str2.length) {
+        return false
+    }
 
+    let stringConcat = str1 + str1;
+
+    let stringConcatSplit = stringConcat.split('')
+
+    if (stringConcatSplit.indexOf(str2) = -1) {
+        return false
+    } else {
+     
+        return true
+    }
+}
+
+let str1 = 'amazon';
+let str2 = 'azonam';
+
+console.log(stringRotation(str1, str2))
